@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "26858530266",
+    "project_id": "fir-system-1951e",
+    "storage_bucket": "fir-system-1951e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:26858530266:android:e70acd25613da5a1ca0ce3",
+        "android_client_info": {
+          "package_name": "com.reactnativefirebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJpxpM_qrPQNDEUCJBNNi1MfGoX4pOqc0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
