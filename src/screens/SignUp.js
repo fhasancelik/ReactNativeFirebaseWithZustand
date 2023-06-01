@@ -24,6 +24,15 @@ const navigation =useNavigation()
   });
 
   const values = getValues();
+  const updateProfile = async () => {
+    const update = {
+      displayName: values.name,
+      photoURL:
+        'https://media.licdn.com/dms/image/C4D03AQEBSlBnM9EG4A/profile-displayphoto-shrink_100_100/0/1660888943743?e=1691020800&v=beta&t=UoSyoTXxLXxepTHoqPEGIidx8n7xr2qct0A5sHmNlDc',
+    };
+    await auth().currentUser?.updateProfile(update)
+
+  };
 
 const signUp=()=>{
   console.log('bas')
@@ -31,6 +40,7 @@ const signUp=()=>{
   .createUserWithEmailAndPassword(values.email, values.password)
   .then(() => {
     console.log('User account created & signed in!');
+    updateProfile()
   })
   .catch(error => {
     if (error.code === 'auth/email-already-in-use') {

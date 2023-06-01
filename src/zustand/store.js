@@ -1,10 +1,15 @@
 import { create } from 'zustand'
 
-const authCheck= create((set) => ({
+export const authCheck= create((set) => ({
   auth: false,
   userAvaible: () => set((state) => ({ auth: true })),
   userNotAvaible: () => set((state) => ({ auth: false })),
  
 }))
 
-export default authCheck
+export const authUser= create((set)=>({
+
+
+  user:null,
+  userInfo:(newUser)=>set((state)=>({user:newUser}))
+}))
