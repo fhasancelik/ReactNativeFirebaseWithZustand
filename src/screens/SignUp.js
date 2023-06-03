@@ -1,13 +1,15 @@
 import { StyleSheet, Text, View ,TextInput, Button} from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import {Controller, useForm} from 'react-hook-form';
 import authCheck from '../zustand/store';
 import auth from '@react-native-firebase/auth'
 import { useNavigation } from '@react-navigation/native';
-
+import database from '@react-native-firebase/database';
 
 const SignUp = () => {
 const navigation =useNavigation()
+
+const [path,setPath]=useState([])
 
 
   const {
@@ -34,6 +36,8 @@ const navigation =useNavigation()
 
   };
 
+  
+
 const signUp=()=>{
   console.log('bas')
   auth()
@@ -41,6 +45,30 @@ const signUp=()=>{
   .then(() => {
     console.log('User account created & signed in!');
     updateProfile()
+
+
+
+   // const reference = database().ref(`/users/usersid/${auth().currentUser?.uid}`);
+    const referenceUid = database().ref(`/users/`);
+const referenceUser=database().ref(`/users/`)
+
+
+referenceUid.push().set(auth().currentUser?.uid)
+.then(() => console.log('Data set.'));
+
+
+
+
+
+
+
+   
+
+    
+       
+
+
+
   })
   .catch(error => {
     if (error.code === 'auth/email-already-in-use') {
@@ -55,7 +83,7 @@ const signUp=()=>{
   });
 
 }
-
+console.log("sss",path)
   return (
     <View>
   <Text>Create Profile</Text>
